@@ -1,0 +1,169 @@
+:root {
+    --displayLeftOffset: 50px;
+    --displayTopOffset: 10px;
+    
+    --keyPadsLeftOffset: 65px;
+    --keyPadsTopOffset: 210px;
+}
+
+.MainDisplay {
+    background-color: black;
+    position: absolute;
+    left:calc(var(--displayLeftOffset) + 50px);
+    top:var(--displayTopOffset);
+    width: 300px;
+    height: 200px;
+}
+
+.NumKeyTable
+{
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: var(--keyPadsLeftOffset);
+    top: calc(var(--keyPadsTopOffset) + 60px);
+    width: 120px;
+    height: 130px;
+}
+
+.NumKeyRow
+{
+    display: table-row;
+}
+
+.NumKeyCell
+{
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.NumKey
+{
+    background-color: #34344c;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.AlphaKeyTable
+{
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: calc(var(--keyPadsLeftOffset) + 120px);
+    top: var(--keyPadsTopOffset);
+}
+
+.AlphaKeyRow
+{
+    display: table-row;
+}
+
+.AlphaKeyCell
+{
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.AlphaKey
+{
+    background-color: #34344c;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+}
+
+.ArrowKeyTable
+{
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: var(--keyPadsLeftOffset);
+    top: var(--keyPadsTopOffset);
+    height: 60px;
+}
+
+.ArrowKeyRow
+{
+    display: table-row;
+}
+
+.ArrowKeyCell
+{
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.ArrowKey
+{
+    background-color: #34344c;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 50px;
+}
+
+.DisplayKeyTable1
+{
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 50px;
+    top: 10px;
+    height: 200px;
+}
+
+.DisplayKeyTable2
+{
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 400px;
+    top: 10px;
+    height: 200px;
+}
+
+.DisplayKeyRow
+{
+    display: table-row;
+}
+
+.DisplayKeyCell
+{
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.DisplayKey
+{
+    background-color: #34344c;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 40px;
+}
