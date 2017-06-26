@@ -2,18 +2,19 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Autopilot CDU</title>
+    <title>CDU</title>
 
-    <link rel="stylesheet" type="text/css" href="cdu.css" />
+    <link rel="stylesheet" type="text/css" href="./res/css/cdu.css" />
     <script>window.$ = window.jQuery = require('./node_modules/jquery');
     </script>
-    <script src="cdu_page.js"></script>
-    <script src="cdu.js"></script>
-
+    <script src="./lib/fabric.js"></script>
+    <script src="./src/cdu_page.js"></script>
+    <script src="./src/cdu.js"></script>
   </head>
+
   <body bgcolor="#a3a3c2">
 
-    <canvas id="MainDisplay" class="MainDisplay">
+    <canvas id="MainDisplay" height="300px" width="350px" class="MainDisplay">
     </canvas>
     
     <div class="DisplayKeyTable1">

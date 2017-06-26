@@ -12,6 +12,8 @@ class CDU {
 
         // Canvas to render display
         this.canvas = canvas;
+
+        this.connect();
     }
 
     handleMessage(msg) {
@@ -22,16 +24,25 @@ class CDU {
     
     connect() {
         // Create socket connections to autopilot
-        this.ap_socket = new net.Socket();
-        this.ap_socket.connect(54545, '127.0.0.1', function() {
-            console.log("Connected to server");
-        });
+        // this.ap_socket = new net.Socket();
+        // this.ap_socket.connect(54545, '127.0.0.1', function() {
+        //     console.log("Connected to server");
+        // });
 
         var that = this;
-        this.ap_socket.on('data', function(data) {
-            var msg = JSON.parse(data.toString());
-            that.handleMessage(msg);
-        });
+        // this.ap_socket.on('data', function(data) {
+        //     var msg = JSON.parse(data.toString());
+        //     that.handleMessage(msg);
+        // });
+
+        var msg = {
+            type: "telem",
+            delta_t: 111
+        };
+
+        console.log("'Connected'");
+
+        that.handleMessage(msg);
     }
     
     // Add a page to the CDU
@@ -71,10 +82,23 @@ class CDU {
     }
 
     clearScreen() {
-        var c = this.canvas;
-        var ctx = c.getContext("2d");
+        var currentCanvasDimensions = new {
+            width: canvas.getWidth(),
+            height: canvas.getHeight()
+        };
+
+        var canvasConfig = new {
+            top: 0,
+            left: 0,
+            width: 0,
+            height: 0
+        };
+        canvas.clear();
+
+        canvas = new fabric.StaticCanvas('MainDisplay');
+
         // Clear the screen
-        ctx.clearRect(0, 0, c.width, c.height);
+
     }
     
     // Set the current CDU page by name
@@ -100,19 +124,21 @@ class CDU {
     }
 }
 
-var canvas = null;
-var cdu = null;
+var canvas = {};
+var cdu = {};
 
 $(document).ready( function() {
-    
-    canvas = document.getElementById("MainDisplay");
-    
+    console.log("Loading CDU");
+    canvas = new fabric.StaticCanvas("MainDisplay");
+    canvas.setDimensions({ width: "80%", height: "50%"}, { cssOnly: true});
+
     cdu = new CDU(canvas);
     var mainMenu = new MainMenuPage("main", cdu);
     var statusPage = new StatusPage("status", cdu);
     cdu.addPage(mainMenu);
     cdu.addPage(statusPage);
-    
+    cdu.setCurrentPage("main");
+    canvas.clear();
     cdu.getCurrentPage().drawPage();
     
     $("button").click(function() {

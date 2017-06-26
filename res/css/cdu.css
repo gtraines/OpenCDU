@@ -1,18 +1,41 @@
 :root {
-    --displayLeftOffset: 50px;
-    --displayTopOffset: 10px;
+    --displayLeftOffset: 5%;
+    --displayTopOffset: 2%;
     
-    --keyPadsLeftOffset: 65px;
-    --keyPadsTopOffset: 210px;
+    --keyPadsLeftOffset: 7%;
+    --keyPadsTopOffset: 62%;
+}
+
+
+@font-face {
+    font-family: 'led-8'; /*a name to be used later*/
+    src: url('../fonts/LED-8.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'led-16'; /*a name to be used later*/
+    src: url('../fonts/LED-16.woff');
+}
+
+@font-face {
+    font-family: "RobotoMono";
+    src: url('../fonts/RobotoMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: '7-segment'; /*a name to be used later*/
+    src: url('../fonts/7-Segment.ttf'); /*URL to font*/
 }
 
 .MainDisplay {
     background-color: black;
+    color: lawngreen;
+    font-family: 'led-8';
     position: absolute;
     left:calc(var(--displayLeftOffset) + 50px);
     top:var(--displayTopOffset);
-    width: 300px;
-    height: 200px;
+    width: 70%;
+    height: 60%;
 }
 
 .NumKeyTable
@@ -43,9 +66,10 @@
 .NumKey
 {
     background-color: #34344c;
+    font-family: '7-segment';
     border: 2px solid #000000;
     border-radius: 50%;
-    color: white;
+    color: limegreen;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -79,6 +103,7 @@
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
+    font-family: 'led-16';
     color: white;
     text-align: center;
     text-decoration: none;
@@ -115,7 +140,7 @@
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
-    color: white;
+    color: limegreen;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -161,7 +186,7 @@
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
-    color: white;
+    color: limegreen;
     text-align: center;
     text-decoration: none;
     display: inline-block;

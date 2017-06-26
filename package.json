@@ -1,13 +1,14 @@
 {
     "name"    : "cdu",
     "version" : "0.1.0",
-    "description": "Generic CDU Program for Autopilots",
+    "description": "Generic CDU-MFD Program",
     "main"    : "main.js",
-
     "scripts": {
         "start": "electron main.js"
     },
-    
+    "dependencies": {
+        "jquery": "^3.2.1"
+    },
     "devDependencies": {
         "electron-prebuilt": "^0.37.0"
     }

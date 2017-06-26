@@ -41,14 +41,24 @@ class CDUPage {
     }
 
     drawPage() {
-        var c = this.cdu.getDisplay();
-        var ctx = c.getContext("2d");
+        var rightLimit = canvas.getWidth();
+        var bottomLimit = canvas.getHeight();
+
+        var returnText = new fabric.Text("RETURN >", {
+            fontSize: "10pt",
+            fontFamily: 'RobotoMono',
+            fill: "limegreen",
+            textAlign: "left",
+            left: rightLimit,
+            top: bottomLimit - 40
+        });
 
         // Draw Return option (which basically every page has other
         // than the main menu)
-        ctx.font = "10px Lucida Console, Monaco, monospace";
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillText("RETURN>", 255, 138);
+        canvas.add(returnText);
+        console.log(returnText);
+        returnText.set({ left: rightLimit - returnText.width });
+        canvas.renderAll();
     }
 }
 
@@ -67,17 +77,20 @@ class MainMenuPage extends CDUPage {
     drawPage() {
         var c = this.cdu.getDisplay();
         var ctx = c.getContext("2d");
-        
+        canvas.clear();
         // Draw Menu Options
-        ctx.font = "10px Lucida Console, Monaco, monospace";
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillText("MAIN MENU", 125, 15);
 
-        ctx.fillText("<STATUS", 5, 15);
-        ctx.fillText("<NAVIGATION", 5, 38);
-        ctx.fillText("<SYSTEMS", 5, 63);
-        
-        ctx.fillText("SETTINGS>", 242, 15);
+        ctx.font = "10pt RobotoMono";
+        ctx.fillStyle = "limegreen";
+        ctx.textAlign = "center";
+        ctx.fillText("MAIN MENU", 125, 15);
+        ctx.textAlign = "left";
+        ctx.fillText("< STATUS", 5, 15);
+        ctx.fillText("< NAVIGATION", 5, 38);
+        ctx.fillText("< SYSTEMS", 5, 63);
+
+        ctx.textAlign = "right";
+        ctx.fillText("SETTINGS >", 242, 15);
     }
 }
 
@@ -130,15 +143,17 @@ class StatusPage extends CDUPage {
 
         var c = this.cdu.getDisplay();
         var ctx = c.getContext("2d");
-        ctx.font = "8 px Lucida Console, Monaco, monospace";
-        ctx.fillStyle = "#FFFFFF";
-        
+
+        ctx.fillStyle = "limegreen";
+        ctx.font = "10pt RobotoMono";
+        ctx.textAlign = "left";
+
         ctx.fillText("dt: " + this.delta_t.toFixed(5), 2, 10);
-        
-        ctx.font = "10px Lucida Console, Monaco, monospace";
-        
+
+        ctx.textAlign = "left";
         ctx.fillText("FLIGHT STATUS", 115, 15);
 
+        ctx.textAlign = "left";
         ctx.fillText("TIME (UT): " + this.univ_time.toFixed(2)
                      + " s", 15, 35);
         ctx.fillText("ALT (ASL): " + this.altASL.toFixed(2)
