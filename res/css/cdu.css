@@ -1,19 +1,19 @@
 :root {
     --displayLeftOffset: 10%;
-    --displayTopOffset: 8%;
-    
+    --displayTopOffset: 10%;
     --keyPadsLeftOffset: 7%;
     --keyPadsTopOffset: 62%;
 }
 
-
 @font-face {
-    font-family: 'led-8'; /*a name to be used later*/
+    font-family: 'led-8';
+    /*a name to be used later*/
     src: url('../fonts/LED-8.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'led-16'; /*a name to be used later*/
+    font-family: 'led-16';
+    /*a name to be used later*/
     src: url('../fonts/LED-16.woff');
 }
 
@@ -23,8 +23,10 @@
 }
 
 @font-face {
-    font-family: '7-segment'; /*a name to be used later*/
-    src: url('../fonts/7-Segment.ttf'); /*URL to font*/
+    font-family: '7-segment';
+    /*a name to be used later*/
+    src: url('../fonts/7-Segment.ttf');
+    /*URL to font*/
 }
 
 .spinner {
@@ -46,14 +48,189 @@
     color: lawngreen;
     font-family: led-8;
     position: absolute;
-    left:var(--displayLeftOffset);
-    top:var(--displayTopOffset);
+    left: var(--displayLeftOffset);
+    top: var(--displayTopOffset);
     width: 80%;
     height: 80%;
 }
 
-.NumKeyTable
-{
+.DskeyRockerTop {
+    background-color: #34344c;
+    border: 2px solid #000000;
+    color: limegreen;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 85%;
+    height: 50%;
+}
+
+.DskeyRockerBottom {
+    background-color: #34344c;
+    border: 2px solid #000000;
+    color: limegreen;
+    vertical-align: bottom;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 85%;
+    height: 50%;
+}
+
+.DskeyCellGain {
+    height: 13%;
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.DskeyCellBrt {
+    height: 13%;
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.DskeyCellSym {
+    height: 13%;
+    display: table-cell;
+    padding-left: 2px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.DskeyCellCon {
+    height: 13%;
+    display: table-cell;
+    padding-left: 2px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
+}
+
+.DisplayKeysLeft {
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 1%;
+    top: 7%;
+    width: 9%;
+    height: 87%;
+}
+
+.DisplayKeysRight {
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 91%;
+    top: 7%;
+    width: 9%;
+    height: 87%;
+}
+
+.DisplayKeysTop {
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 10%;
+    top: 1%;
+    width: 80%;
+    height: 10%;
+}
+
+.DisplayKeysBottom {
+    display: table;
+    background-color: #a3a3c2;
+    position: absolute;
+    left: 91%;
+    top: 6%;
+    width: 9%;
+    height: 87%;
+}
+
+.DisplayKeyRow {
+    display: table-row;
+}
+
+.DisplayKeyRowTop {
+    display: table-row;
+}
+
+.DisplayKeyRowTop {
+    display: table-row;
+}
+
+.DskeyCellLeft {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 11.5%;
+}
+
+.DskeyCellRight {
+    display: table-cell;
+    padding-left: 2px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 11.5%;
+}
+
+.DskeyCellTop {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 11%;
+    width: 11%;
+}
+
+.DskeyCellTopBuffer {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: 10%;
+    width: 10%;
+}
+
+.DskeyCellBottom {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.DisplayKeyCell {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.DisplayKey {
+    background-color: #34344c;
+    border: 2px solid #000000;
+    color: limegreen;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    width: 90%;
+    height: 90%;
+}
+
+.NumKeyTable {
     display: table;
     background-color: #a3a3c2;
     position: absolute;
@@ -63,13 +240,11 @@
     height: 130px;
 }
 
-.NumKeyRow
-{
+.NumKeyRow {
     display: table-row;
 }
 
-.NumKeyCell
-{
+.NumKeyCell {
     display: table-cell;
     padding-left: 5px;
     padding-right: 5px;
@@ -77,8 +252,7 @@
     padding-bottom: 5px;
 }
 
-.NumKey
-{
+.NumKey {
     background-color: #34344c;
     font-family: RobotoMono;
     border: 2px solid #000000;
@@ -89,8 +263,7 @@
     display: inline-block;
 }
 
-.AlphaKeyTable
-{
+.AlphaKeyTable {
     display: table;
     background-color: #a3a3c2;
     position: absolute;
@@ -98,13 +271,11 @@
     top: var(--keyPadsTopOffset);
 }
 
-.AlphaKeyRow
-{
+.AlphaKeyRow {
     display: table-row;
 }
 
-.AlphaKeyCell
-{
+.AlphaKeyCell {
     display: table-cell;
     padding-left: 5px;
     padding-right: 5px;
@@ -112,8 +283,7 @@
     padding-bottom: 5px;
 }
 
-.AlphaKey
-{
+.AlphaKey {
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
@@ -125,8 +295,7 @@
     width: 40px;
 }
 
-.ArrowKeyTable
-{
+.ArrowKeyTable {
     display: table;
     background-color: #a3a3c2;
     position: absolute;
@@ -135,13 +304,11 @@
     height: 60px;
 }
 
-.ArrowKeyRow
-{
+.ArrowKeyRow {
     display: table-row;
 }
 
-.ArrowKeyCell
-{
+.ArrowKeyCell {
     display: table-cell;
     padding-left: 5px;
     padding-right: 5px;
@@ -149,8 +316,7 @@
     padding-bottom: 5px;
 }
 
-.ArrowKey
-{
+.ArrowKey {
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
@@ -159,55 +325,4 @@
     text-decoration: none;
     display: inline-block;
     width: 50px;
-}
-
-.DisplayKeyRowTop
-{
-
-}
-
-.DisplayKeyTable1
-{
-    display: table;
-    background-color: #a3a3c2;
-    position: absolute;
-    left: 2%;
-    top: 10%;
-    height: 80%;
-}
-
-.DisplayKeyTable2
-{
-    display: table;
-    background-color: #a3a3c2;
-    position: absolute;
-    left: 92%;
-    top: 10%;
-    height: 80%;
-}
-
-.DisplayKeyRow
-{
-    display: table-row;
-}
-
-.DisplayKeyCell
-{
-    display: table-cell;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.DisplayKey
-{
-    background-color: #34344c;
-    border: 2px solid #000000;
-    border-radius: 10px;
-    color: limegreen;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
 }
