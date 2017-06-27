@@ -1,6 +1,6 @@
 :root {
-    --displayLeftOffset: 5%;
-    --displayTopOffset: 2%;
+    --displayLeftOffset: 10%;
+    --displayTopOffset: 8%;
     
     --keyPadsLeftOffset: 7%;
     --keyPadsTopOffset: 62%;
@@ -46,7 +46,7 @@
     color: lawngreen;
     font-family: led-8;
     position: absolute;
-    left:calc(var(--displayLeftOffset) + 50px);
+    left:var(--displayLeftOffset);
     top:var(--displayTopOffset);
     width: 80%;
     height: 80%;
@@ -161,14 +161,19 @@
     width: 50px;
 }
 
+.DisplayKeyRowTop
+{
+
+}
+
 .DisplayKeyTable1
 {
     display: table;
     background-color: #a3a3c2;
     position: absolute;
-    left: 50px;
-    top: 10px;
-    height: 200px;
+    left: 2%;
+    top: 10%;
+    height: 80%;
 }
 
 .DisplayKeyTable2
@@ -176,9 +181,9 @@
     display: table;
     background-color: #a3a3c2;
     position: absolute;
-    left: 400px;
-    top: 10px;
-    height: 200px;
+    left: 92%;
+    top: 10%;
+    height: 80%;
 }
 
 .DisplayKeyRow
@@ -191,8 +196,8 @@
     display: table-cell;
     padding-left: 5px;
     padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .DisplayKey
@@ -204,5 +209,5 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    width: 40px;
+    width: 100%;
 }

@@ -15,126 +15,127 @@
   </head>
 
   <body bgcolor="#a3a3c2">
-    <div>
-      <div class="preloadFont">.</div>
-    </div>
+  <div class="DisplayKeyTable1">
+      <!-- TOP ROW -->
+      <div class="DisplayKeyRow">
+          <!-- Upper Left Corner Up -->
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="DCULU"><b>+</b></button>
+              <button type="button" class="DisplayKey"
+                      id="DCULD"><b>AB</b></button>
+          </div>
+      </div>
+      <!-- LEFT SIDE VERTICAL -->
+      <!-- Upper LEFT Corner Down -->
+      <!-- Left side buttons -->
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="D1"><b>-</b></button>
+          </div>
+      </div>
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="D2"><b>-</b></button>
+          </div>
+      </div>
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="D3"><b>-</b></button>
+          </div>
+      </div>
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="D4"><b>-</b></button>
+          </div>
+      </div>
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="D5"><b>-</b></button>
+          </div>
+      </div>
+      <!-- Bottom Left Corner Up -->
+      <div class="DisplayKeyRow">
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="DCBLU"><b>/\</b></button>
+          </div>
+      </div>
+      <!-- BOTTOM ROW -->
+      <div class="DisplayKeyRow">
+          <!-- Bottom left corner down -->
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="DCBLD"><b>\/</b></button>
+          </div>
+
+      </div>
+  </div>
+
 
 <div class="MainDisplay">
     <div id="spinner">
+        <div style="font-family: RobotoMono;">LOADING</div>
     </div>
     <canvas id="MainDisplay" height="300px" width="300px" >
     </canvas>
 </div>
 
-    
-    <div class="DisplayKeyTable1">
-        <!-- TOP ROW -->
-        <div class="DisplayKeyRow">
-            <!-- Upper Left Corner Up -->
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="DCULU"><b>/\</b></button>
-            </div>
-            <!-- Across top -->
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D01"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D02"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D03"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D04"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D05"><b>-</b></button>
-            </div>
+    <!--<div class="DisplayKeyRowTop">-->
+        <!--&lt;!&ndash; Across top &ndash;&gt;-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D01"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D02"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D03"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D04"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D05"><b>-</b></button>-->
+        <!--</div>-->
+    <!--</div>-->
 
-        </div>
-        <!-- LEFT SIDE VERTICAL -->
-        <!-- Upper LEFT Corner Down -->
-        <div class="DisplayKeyRow">
-                <div class="DisplayKeyCell">
-                    <button type="button" class="DisplayKey"
-                            id="DCULD"><b>\/</b></button>
-                </div>
-        </div>
-        <!-- Left side buttons -->
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D1"><b>-</b></button>
-        </div>
-      </div>
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D2"><b>-</b></button>
-        </div>
-      </div>
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D3"><b>-</b></button>
-        </div>
-      </div>
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D4"><b>-</b></button>
-        </div>
-      </div>
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D5"><b>-</b></button>
-        </div>
-      </div>
-        <!-- Bottom Left Corner Up -->
-        <div class="DisplayKeyRow">
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="DCBLU"><b>/\</b></button>
-            </div>
-        </div>
-        <!-- BOTTOM ROW -->
-        <div class="DisplayKeyRow">
-            <!-- Bottom left corner down -->
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                    id="DCBLD"><b>\/</b></button>
-            </div>
-            <!-- Bottom row across -->
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D21"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D22"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D23"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D24"><b>-</b></button>
-            </div>
-            <div class="DisplayKeyCell">
-                <button type="button" class="DisplayKey"
-                        id="D25"><b>-</b></button>
-            </div>
+    <!--<div class="">-->
+        <!--&lt;!&ndash; Bottom row across &ndash;&gt;-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D21"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D22"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D23"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D24"><b>-</b></button>-->
+        <!--</div>-->
+        <!--<div class="DisplayKeyCell">-->
+            <!--<button type="button" class="DisplayKey"-->
+                    <!--id="D25"><b>-</b></button>-->
+        <!--</div>-->
+    <!--</div>-->
 
-        </div>
-    </div>
+
+
 
     <div class="DisplayKeyTable2">
         <div class="DisplayKeyRow">
@@ -185,7 +186,7 @@
             <!-- Bottom Right Corner Up -->
             <div class="DisplayKeyCell">
                 <button type="button" class="DisplayKey"
-                        id="DCBRU"><b>\/</b></button>
+                        id="DCBRU"><b>/\</b></button>
             </div>
         </div>
       <div class="DisplayKeyRow">
