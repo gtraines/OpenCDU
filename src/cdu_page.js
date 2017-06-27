@@ -41,8 +41,8 @@ class CDUPage {
     }
 
     drawPage() {
-        var rightLimit = canvas.getWidth();
-        var bottomLimit = canvas.getHeight();
+        var rightLimit = canvas.getCenter();
+        var bottomLimit = canvas.getCenter();
 
         var returnText = new fabric.Text("RETURN >", {
             fontSize: "10pt",
@@ -75,22 +75,27 @@ class MainMenuPage extends CDUPage {
     }
 
     drawPage() {
-        var c = this.cdu.getDisplay();
-        var ctx = c.getContext("2d");
-        canvas.clear();
-        // Draw Menu Options
+        var textConfig = {
+            fontSize: "10pt",
+            fontFamily: 'RobotoMono',
+            fill: "limegreen",
+            textAlign: "left",
+            left: 5,
+            top: 15
+        };
 
-        ctx.font = "10pt RobotoMono";
-        ctx.fillStyle = "limegreen";
-        ctx.textAlign = "center";
-        ctx.fillText("MAIN MENU", 125, 15);
-        ctx.textAlign = "left";
-        ctx.fillText("< STATUS", 5, 15);
-        ctx.fillText("< NAVIGATION", 5, 38);
-        ctx.fillText("< SYSTEMS", 5, 63);
+        var returnText = new fabric.Text("< STATUS",
+                textConfig);
+        //
+        // ctx.fillText("MAIN MENU", 125, 15);
+        // ctx.fillText("< STATUS", 5, 15);
+        // ctx.fillText("< NAVIGATION", 5, 38);
+        // ctx.fillText("< SYSTEMS", 5, 63);
+        //
+        // ctx.fillText("SETTINGS >", 242, 15);
 
-        ctx.textAlign = "right";
-        ctx.fillText("SETTINGS >", 242, 15);
+        canvas.add(returnText);
+        canvas.renderAll();
     }
 }
 

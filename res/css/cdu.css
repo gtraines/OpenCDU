@@ -27,15 +27,29 @@
     src: url('../fonts/7-Segment.ttf'); /*URL to font*/
 }
 
+.spinner {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+#preloadFont {
+    font-family: RobotoMono;
+    font-size: x-small;
+    color: #a3a3c2;
+    background-color: #a3a3c2;
+}
+
 .MainDisplay {
     background-color: black;
     color: lawngreen;
-    font-family: 'led-8';
+    font-family: led-8;
     position: absolute;
     left:calc(var(--displayLeftOffset) + 50px);
     top:var(--displayTopOffset);
-    width: 70%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
 }
 
 .NumKeyTable
@@ -66,7 +80,7 @@
 .NumKey
 {
     background-color: #34344c;
-    font-family: '7-segment';
+    font-family: RobotoMono;
     border: 2px solid #000000;
     border-radius: 50%;
     color: limegreen;
@@ -103,7 +117,7 @@
     background-color: #34344c;
     border: 2px solid #000000;
     border-radius: 10px;
-    font-family: 'led-16';
+    font-family: led-16;
     color: white;
     text-align: center;
     text-decoration: none;

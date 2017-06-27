@@ -105,10 +105,7 @@ class CDU {
     setCurrentPage(name) {
         this.curCduPage = this.pages[name];
 
-        var c = this.canvas;
-        var ctx = c.getContext("2d");
-        // Clear the screen
-        ctx.clearRect(0, 0, c.width, c.height);
+        canvas.clear();
         // Draw the new page
         this.curCduPage.drawPage();
     }
@@ -127,25 +124,97 @@ class CDU {
 var canvas = {};
 var cdu = {};
 
-$(document).ready( function() {
-    console.log("Loading CDU");
+function getSpinnerOptions() {
+    var opts = {
+        lines: 11 // The number of lines to draw
+        , length: 24 // The length of each line
+        , width: 14 // The line thickness
+        , radius: 42 // The radius of the inner circle
+        , scale: 1 // Scales overall size of the spinner
+        , corners: 0.7 // Corner roundness (0..1)
+        , color: '#32CD32' // #rgb or #rrggbb or array of colors
+        , opacity: 0.25 // Opacity of the lines
+        , rotate: 0 // The rotation offset
+        , direction: 1 // 1: clockwise, -1: counterclockwise
+        , speed: 0.9 // Rounds per second
+        , trail: 50 // Afterglow percentage
+        , fps: 20 // Frames per second when using setTimeout() as a fallback for CSS
+        , zIndex: 2e9 // The z-index (defaults to 2000000000)
+        , className: 'spinner' // The CSS class to assign to the spinner
+        , top: '50%' // Top position relative to parent
+        , left: '50%' // Left position relative to parent
+        , shadow: false // Whether to render a shadow
+        , hwaccel: false // Whether to use hardware acceleration
+        , position: 'absolute' // Element positioning
+    };
+
+    return opts;
+}
+
+function runLoadingCountdown(fnToExec, countdownLength) {
+    countdownLength = countdownLength || 1000;
+
+    var target = document.getElementById('spinner');
+    console.log(target);
+    var countDownSpinner = new Spinner(getSpinnerOptions()).spin(target);
+
+    console.log(countDownSpinner);
+
+    target.appendChild(countDownSpinner.el);
+
+    setTimeout(function () {
+        console.log("counted down");
+
+        countDownSpinner.stop();
+        fnToExec();
+        return;
+    }, countdownLength);
+
+}
+
+function renderCdu() {
     canvas = new fabric.StaticCanvas("MainDisplay");
-    canvas.setDimensions({ width: "80%", height: "50%"}, { cssOnly: true});
+    canvas.setDimensions({ width: "100%", height: "100%"}, { cssOnly: true});
 
-    cdu = new CDU(canvas);
-    var mainMenu = new MainMenuPage("main", cdu);
-    var statusPage = new StatusPage("status", cdu);
-    cdu.addPage(mainMenu);
-    cdu.addPage(statusPage);
-    cdu.setCurrentPage("main");
-    canvas.clear();
-    cdu.getCurrentPage().drawPage();
-    
-    $("button").click(function() {
-        cdu.handleInput(this.id);
-    });
+    var textConfig = {
+        fontSize: 14,
+        fontFamily: 'RobotoMono',
+        fill: "limegreen",
+        left: 5,
+        top: 15
+    };
 
-    cdu.connect();
-    
+    var returnText = new fabric.Text("< STATUS",
+        textConfig);
+    //
+    // ctx.fillText("MAIN MENU", 125, 15);
+    // ctx.fillText("< STATUS", 5, 15);
+    // ctx.fillText("< NAVIGATION", 5, 38);
+    // ctx.fillText("< SYSTEMS", 5, 63);
+    //
+    // ctx.fillText("SETTINGS >", 242, 15);
+
+    canvas.add(returnText);
+    canvas.renderAll();
+
+    // cdu = new CDU(canvas);
+    // var mainMenu = new MainMenuPage("main", cdu);
+    // var statusPage = new StatusPage("status", cdu);
+    // cdu.addPage(mainMenu);
+    // cdu.addPage(statusPage);
+    // cdu.setCurrentPage("main");
+    //
+    // $("button").click(function() {
+    //     cdu.handleInput(this.id);
+    // });
+    //
+    // cdu.connect();
+}
+
+$(document).ready( function() {
+
+    console.log("Loading CDU");
+    runLoadingCountdown(renderCdu);
+
 });
 

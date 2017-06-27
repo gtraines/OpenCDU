@@ -7,17 +7,66 @@
     <link rel="stylesheet" type="text/css" href="./res/css/cdu.css" />
     <script>window.$ = window.jQuery = require('./node_modules/jquery');
     </script>
+      <script>window.Spinner = require('./lib/spin.js')</script>
+    <script src="./lib/lodash.js"></script>
     <script src="./lib/fabric.js"></script>
     <script src="./src/cdu_page.js"></script>
     <script src="./src/cdu.js"></script>
   </head>
 
   <body bgcolor="#a3a3c2">
+    <div>
+      <div class="preloadFont">.</div>
+    </div>
 
-    <canvas id="MainDisplay" height="300px" width="350px" class="MainDisplay">
+<div class="MainDisplay">
+    <div id="spinner">
+    </div>
+    <canvas id="MainDisplay" height="300px" width="300px" >
     </canvas>
+</div>
+
     
     <div class="DisplayKeyTable1">
+        <!-- TOP ROW -->
+        <div class="DisplayKeyRow">
+            <!-- Upper Left Corner Up -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="DCULU"><b>/\</b></button>
+            </div>
+            <!-- Across top -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D01"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D02"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D03"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D04"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D05"><b>-</b></button>
+            </div>
+
+        </div>
+        <!-- LEFT SIDE VERTICAL -->
+        <!-- Upper LEFT Corner Down -->
+        <div class="DisplayKeyRow">
+                <div class="DisplayKeyCell">
+                    <button type="button" class="DisplayKey"
+                            id="DCULD"><b>\/</b></button>
+                </div>
+        </div>
+        <!-- Left side buttons -->
       <div class="DisplayKeyRow">
         <div class="DisplayKeyCell">
           <button type="button" class="DisplayKey"
@@ -48,15 +97,60 @@
                   id="D5"><b>-</b></button>
         </div>
       </div>
-      <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D6"><b>-</b></button>
+        <!-- Bottom Left Corner Up -->
+        <div class="DisplayKeyRow">
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="DCBLU"><b>/\</b></button>
+            </div>
         </div>
-      </div>
+        <!-- BOTTOM ROW -->
+        <div class="DisplayKeyRow">
+            <!-- Bottom left corner down -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                    id="DCBLD"><b>\/</b></button>
+            </div>
+            <!-- Bottom row across -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D21"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D22"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D23"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D24"><b>-</b></button>
+            </div>
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="D25"><b>-</b></button>
+            </div>
+
+        </div>
     </div>
 
     <div class="DisplayKeyTable2">
+        <div class="DisplayKeyRow">
+            <!-- Upper Right Corner Up -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="DCURU"><b>/\</b></button>
+            </div>
+        </div>
+        <div class="DisplayKeyRow">
+            <!-- Upper Right Corner Up -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="DCURD"><b>\/</b></button>
+            </div>
+        </div>
       <div class="DisplayKeyRow">
         <div class="DisplayKeyCell">
           <button type="button" class="DisplayKey"
@@ -87,86 +181,95 @@
                   id="D11"><b>-</b></button>
         </div>
       </div>
+        <div class="DisplayKeyRow">
+            <!-- Bottom Right Corner Up -->
+            <div class="DisplayKeyCell">
+                <button type="button" class="DisplayKey"
+                        id="DCBRU"><b>\/</b></button>
+            </div>
+        </div>
       <div class="DisplayKeyRow">
-        <div class="DisplayKeyCell">
-          <button type="button" class="DisplayKey"
-                  id="D12"><b>-</b></button>
-        </div>
-      </div>
-    </div>    
-    
-    <div class="NumKeyTable">
-      <div class="NumKeyRow">
-        
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM1">1</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM2">2</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM3">3</button>
-        </div>
-        
-      </div>
-      
-      <div class="NumKeyRow">
-        
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM4">4</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM5">5</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM6">6</button>
-        </div>
-        
-      </div>
-      
-      <div class="NumKeyRow">
-        
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM7">7</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM8">8</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM9">9</button>
-        </div>
-        
-      </div>
-      
-      <div class="NumKeyRow">
-        
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM.">.</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM0">0</button>
-        </div>
-        <div class="NumKeyCell">
-          <button type="button" class="NumKey"
-                  id="NUM-">-</button>
-        </div>
-        
+          <!-- Bottom Right Corner Down -->
+          <div class="DisplayKeyCell">
+              <button type="button" class="DisplayKey"
+                      id="DCBRD"><b>\/</b></button>
+          </div>
       </div>
     </div>
 
-    <div class="AlphaKeyTable">
 
+    
+    <!--<div class="NumKeyTable">-->
+      <!--<div class="NumKeyRow">-->
+        <!---->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM1">1</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM2">2</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM3">3</button>-->
+        <!--</div>-->
+        <!---->
+      <!--</div>-->
+      <!---->
+      <!--<div class="NumKeyRow">-->
+        <!---->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM4">4</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM5">5</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM6">6</button>-->
+        <!--</div>-->
+        <!---->
+      <!--</div>-->
+      <!---->
+      <!--<div class="NumKeyRow">-->
+        <!---->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM7">7</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM8">8</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM9">9</button>-->
+        <!--</div>-->
+        <!---->
+      <!--</div>-->
+      <!---->
+      <!--<div class="NumKeyRow">-->
+        <!---->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM.">.</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM0">0</button>-->
+        <!--</div>-->
+        <!--<div class="NumKeyCell">-->
+          <!--<button type="button" class="NumKey"-->
+                  <!--id="NUM-">-</button>-->
+        <!--</div>-->
+        <!---->
+      <!--</div>-->
+    <!--</div>-->
+<!--
+    <div class="AlphaKeyTable">
       <div class="AlphaKeyRow">
         <div class="AlphaKeyCell">
           <button type="button" class="AlphaKey"
@@ -189,149 +292,150 @@
                   id="BTN-E">E</button>
         </div>
       </div>
-      
-      <div class="AlphaKeyRow">
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-F">F</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-G">G</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-H">H</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-I">I</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-J">J</button>
-        </div>
-      </div>
-      
-      <div class="AlphaKeyRow">
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-K">K</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-L">L</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-M">M</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-N">N</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-O">O</button>
-        </div>
-      </div>
-      
-      <div class="AlphaKeyRow">
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-P">P</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-Q">Q</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-R">R</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-S">S</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-T">T</button>
-        </div>
-      </div>
-
-      <div class="AlphaKeyRow">
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-U">U</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-V">V</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-W">W</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-X">X</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-Y">Y</button>
-        </div>
-      </div>
-
-      <div class="AlphaKeyRow">
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-Z">Z</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-/">/</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-SP">SP</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" style="padding-left:0px;"
-                  class="AlphaKey" id="BTN-BKSP">BKSP</button>
-        </div>
-        <div class="AlphaKeyCell">
-          <button type="button" class="AlphaKey"
-                  id="BTN-CLR">CLR</button>
-        </div>
-      </div>      
-      
     </div>
+      -->
+      <!--<div class="AlphaKeyRow">-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-F">F</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-G">G</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-H">H</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-I">I</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-J">J</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+      <!--<div class="AlphaKeyRow">-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-K">K</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-L">L</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-M">M</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-N">N</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-O">O</button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+      <!--<div class="AlphaKeyRow">-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-P">P</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-Q">Q</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-R">R</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-S">S</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-T">T</button>-->
+        <!--</div>-->
+      <!--</div>-->
 
-    <div class="ArrowKeyTable">
+      <!--<div class="AlphaKeyRow">-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-U">U</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-V">V</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-W">W</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-X">X</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-Y">Y</button>-->
+        <!--</div>-->
+      <!--</div>-->
 
-      <div class="ArrowKeyRow">
-        <div class="ArrowKeyCell">
-          <button type="button" class="ArrowKey"
-                  id="ARROW-LEFT"><b>&larr;</b></button>
-        </div>
-        <div class="ArrowKeyCell">
-          <button type="button" class="ArrowKey"
-                  id="ARROW-UP"><b>&uarr;</b></button>
-        </div>
-      </div>
+      <!--<div class="AlphaKeyRow">-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-Z">Z</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-/">/</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-SP">SP</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" style="padding-left:0px;"-->
+                  <!--class="AlphaKey" id="BTN-BKSP">BKSP</button>-->
+        <!--</div>-->
+        <!--<div class="AlphaKeyCell">-->
+          <!--<button type="button" class="AlphaKey"-->
+                  <!--id="BTN-CLR">CLR</button>-->
+        <!--</div>-->
+      <!--</div>      -->
+      <!---->
+    <!--</div>-->
 
-      <div class="ArrowKeyRow">
-        <div class="ArrowKeyCell">
-          <button type="button" class="ArrowKey"
-                  id="BTN-RIGHT"><b>&rarr;</b></button>
-        </div>
-        <div class="ArrowKeyCell">
-          <button type="button" class="ArrowKey"
-                  id="BTN-DOWN"><b>&darr;</b></button>
-        </div>
-      </div>
-      
-    </div>
+    <!--<div class="ArrowKeyTable">-->
+
+      <!--<div class="ArrowKeyRow">-->
+        <!--<div class="ArrowKeyCell">-->
+          <!--<button type="button" class="ArrowKey"-->
+                  <!--id="ARROW-LEFT"><b>&larr;</b></button>-->
+        <!--</div>-->
+        <!--<div class="ArrowKeyCell">-->
+          <!--<button type="button" class="ArrowKey"-->
+                  <!--id="ARROW-UP"><b>&uarr;</b></button>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="ArrowKeyRow">-->
+        <!--<div class="ArrowKeyCell">-->
+          <!--<button type="button" class="ArrowKey"-->
+                  <!--id="BTN-RIGHT"><b>&rarr;</b></button>-->
+        <!--</div>-->
+        <!--<div class="ArrowKeyCell">-->
+          <!--<button type="button" class="ArrowKey"-->
+                  <!--id="BTN-DOWN"><b>&darr;</b></button>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!---->
+    <!--</div>-->
     
   </body>
 </html>
