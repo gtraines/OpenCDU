@@ -82,12 +82,12 @@ class CDU {
     }
 
     clearScreen() {
-        var currentCanvasDimensions = new {
+        var currentCanvasDimensions = {
             width: canvas.getWidth(),
             height: canvas.getHeight()
         };
 
-        var canvasConfig = new {
+        var canvasConfig = {
             top: 0,
             left: 0,
             width: 0,
@@ -151,12 +151,14 @@ function renderCdu() {
     canvas.setDimensions({ width: "100%", height: "100%" }, { cssOnly: true });
 
     var textConfig = {
-        fontSize: 14,
+        fontSize: 10,
         fontFamily: 'RobotoMono',
         fill: "limegreen",
         left: 5,
         top: 15
     };
+
+
 
     var returnText = new fabric.Text("< STATUS",
         textConfig);
@@ -236,4 +238,81 @@ function getSpinnerOptions() {
     };
 
     return opts;
+}
+
+function createButtonCoord(buttonId, topInt, center) {
+    var buttonCoordObject = {
+        buttonId: buttonId,
+        left: leftInt,
+        top: topInt
+    };
+
+    return Object.create(buttonCoordObject);
+}
+
+var BTN_CONSTS = {
+    GAIN_UP: 'GAIN_UP',
+    GAIN_DOWN: 'GAIN_DOWN',
+    BRT_UP: 'BRT_UP',
+    BRT_DOWN: 'BRT_DOWN',
+    SYM_UP: 'SYM_UP',
+    SYM_DOWN: 'SYM_DOWN',
+    CON_UP: 'CON_UP',
+    CON_DOWN: 'CON_DOWN',
+    OSB01: 'OSB01',
+    OSB02: 'OSB02',
+    OSB03: 'OSB03',
+    OSB04: 'OSB04',
+    OSB05: 'OSB05',
+    OSB06: 'OSB06',
+    OSB07: 'OSB07',
+    OSB08: 'OSB08',
+    OSB09: 'OSB09',
+    OSB10: 'OSB10',
+    OSB11: 'OSB11',
+    OSB12: 'OSB12',
+    OSB13: 'OSB13',
+    OSB14: 'OSB14',
+    OSB15: 'OSB15',
+    OSB16: 'OSB16',
+    OSB17: 'OSB17',
+    OSB18: 'OSB18',
+    OSB19: 'OSB19',
+    OSB20: 'OSB20',
+}
+
+function generateButtonCoords() {
+    var buttonCoords = [];
+    var currentCanvasDimensions = {
+        width: canvas.getWidth(),
+        height: canvas.getHeight()
+    };
+    var widthStep = currentCanvasDimensions.width / 7.0;
+    var heightStep = currentCanvasDimensions.height / 7.0;
+    var buttonCenter = 0;
+
+    // left
+    var leftButtonIds = ['GAIN_UP', 'GAIN_DOWN', 'OSB20', 'OSB20', 'OSB20', 'OSB20', 'OSB20', 'SYM_UP', 'SYM_DOWN'];
+
+    // top
+    var topButtonIds = [
+        BTN_CONSTS.OSB01,
+        BTN_CONSTS.OSB02,
+        BTN_CONSTS.OSB03,
+        BTN_CONSTS.OSB04,
+        BTN_CONSTS.OSB05
+    ];
+    var topTop = 5;
+    var topLeft = widthStep;
+    buttonCenter = topLeft + (widthStep / 2.0);
+
+    _.each(topButtonIds, function(buttonId) {
+            buttonCoords.push(createButtonCoord(buttonId, left, top));
+            left +=
+        })
+        // right
+
+    // bottom
+
+
 }

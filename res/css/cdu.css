@@ -54,6 +54,11 @@
     height: 80%;
 }
 
+.rocker_text {
+    font-family: RobotoMono;
+    font-size: small;
+}
+
 .DskeyRockerTop {
     background-color: #34344c;
     border: 2px solid #000000;
@@ -147,10 +152,10 @@
     display: table;
     background-color: #a3a3c2;
     position: absolute;
-    left: 91%;
-    top: 6%;
-    width: 9%;
-    height: 87%;
+    left: 10%;
+    top: 90%;
+    width: 80%;
+    height: 10%;
 }
 
 .DisplayKeyRow {
@@ -161,7 +166,7 @@
     display: table-row;
 }
 
-.DisplayKeyRowTop {
+.DisplayKeyRowBottom {
     display: table-row;
 }
 
@@ -189,6 +194,16 @@
     padding-right: 5px;
     padding-top: 2px;
     padding-bottom: 2px;
+    height: 11%;
+    width: 11%;
+}
+
+.DskeyCellBottom {
+    display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 5px;
     height: 11%;
     width: 11%;
 }
