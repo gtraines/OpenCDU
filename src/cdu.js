@@ -127,7 +127,7 @@ var cdu = {};
 
 
 function runLoadingCountdown(fnToExec, countdownLength) {
-    countdownLength = countdownLength || 1000;
+    countdownLength = countdownLength || 500;
 
     var target = document.getElementById('spinner');
     var loadingTextEl = $('#loadingText');
@@ -141,7 +141,7 @@ function runLoadingCountdown(fnToExec, countdownLength) {
         countDownSpinner.stop();
         loadingTextEl.prop("hidden", "hidden");
         fnToExec();
-        return;
+
     }, countdownLength);
 
 }
@@ -149,7 +149,7 @@ function runLoadingCountdown(fnToExec, countdownLength) {
 function renderCdu() {
     canvas = new fabric.StaticCanvas("MainDisplay");
     canvas.setDimensions({ width: "100%", height: "100%" }, { cssOnly: true });
-
+    generateButtonCoords();
     var textConfig = {
         fontSize: 10,
         fontFamily: 'RobotoMono',
@@ -158,12 +158,11 @@ function renderCdu() {
         top: 15
     };
 
-
-
     var returnText = new fabric.Text("< STATUS",
         textConfig);
     //
-    // ctx.fillText("MAIN MENU", 125, 15);
+    var mainMenu = new fabric.Text("< MAIN MENU",
+        textConfig);
     // ctx.fillText("< STATUS", 5, 15);
     // ctx.fillText("< NAVIGATION", 5, 38);
     // ctx.fillText("< SYSTEMS", 5, 63);
@@ -171,6 +170,22 @@ function renderCdu() {
     // ctx.fillText("SETTINGS >", 242, 15);
 
     canvas.add(returnText);
+    canvas.add(mainMenu);
+    var canvasCoords = getRenderCoordinates(BTN_CONSTS.GAIN_DOWN, returnText);
+    var mainMenuCoords = getRenderCoordinates(BTN_CONSTS.GAIN_UP, mainMenu);
+
+    mainMenu.set(
+        {
+            left: mainMenuCoords.left,
+            top: mainMenuCoords.top
+        });
+
+    returnText.set(
+        {
+            left: canvasCoords.left,
+            top: canvasCoords.top
+        });
+
     canvas.renderAll();
 
     // cdu = new CDU(canvas);
@@ -240,15 +255,14 @@ function getSpinnerOptions() {
     return opts;
 }
 
-function createButtonCoord(buttonId, topInt, center) {
-    var buttonCoordObject = {
-        buttonId: buttonId,
-        left: leftInt,
-        top: topInt
-    };
 
-    return Object.create(buttonCoordObject);
-}
+
+var COORD_CONSTS = {
+    TOP: "TOP",
+    BOTTOM: "BOTTOM",
+    LEFT: "LEFT",
+    RIGHT: "RIGHT"
+};
 
 var BTN_CONSTS = {
     GAIN_UP: 'GAIN_UP',
@@ -278,41 +292,119 @@ var BTN_CONSTS = {
     OSB17: 'OSB17',
     OSB18: 'OSB18',
     OSB19: 'OSB19',
-    OSB20: 'OSB20',
+    OSB20: 'OSB20'
+};
+
+var BTN_COL_ROW = [];
+
+function addButtonCoord(buttonId, x, y) {
+    var buttonCoordObject = {
+        buttonId: buttonId,
+        x: x,
+        y: y
+    };
+
+    BTN_COL_ROW.push(buttonCoordObject);
 }
 
 function generateButtonCoords() {
-    var buttonCoords = [];
-    var currentCanvasDimensions = {
-        width: canvas.getWidth(),
-        height: canvas.getHeight()
+
+    addButtonCoord(BTN_CONSTS.OSB01, 1, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.OSB02, 2, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.OSB03, 3, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.OSB04, 4, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.OSB05, 5, COORD_CONSTS.TOP);
+
+    addButtonCoord(BTN_CONSTS.OSB11, 5, COORD_CONSTS.BOTTOM);
+    addButtonCoord(BTN_CONSTS.OSB12, 4, COORD_CONSTS.BOTTOM);
+    addButtonCoord(BTN_CONSTS.OSB13, 3, COORD_CONSTS.BOTTOM);
+    addButtonCoord(BTN_CONSTS.OSB14, 2, COORD_CONSTS.BOTTOM);
+    addButtonCoord(BTN_CONSTS.OSB15, 1, COORD_CONSTS.BOTTOM);
+
+    addButtonCoord(BTN_CONSTS.GAIN_UP, COORD_CONSTS.LEFT, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.GAIN_DOWN, COORD_CONSTS.LEFT, 1);
+
+    addButtonCoord(BTN_CONSTS.OSB20, COORD_CONSTS.LEFT, 2);
+    addButtonCoord(BTN_CONSTS.OSB19, COORD_CONSTS.LEFT, 3);
+    addButtonCoord(BTN_CONSTS.OSB18, COORD_CONSTS.LEFT, 4);
+    addButtonCoord(BTN_CONSTS.OSB17, COORD_CONSTS.LEFT, 5);
+    addButtonCoord(BTN_CONSTS.OSB16, COORD_CONSTS.LEFT, 6);
+
+    addButtonCoord(BTN_CONSTS.BRT_UP, COORD_CONSTS.LEFT, 7);
+    addButtonCoord(BTN_CONSTS.BRT_DOWN, COORD_CONSTS.LEFT, COORD_CONSTS.BOTTOM);
+
+    addButtonCoord(BTN_CONSTS.SYM_UP, COORD_CONSTS.RIGHT, COORD_CONSTS.TOP);
+    addButtonCoord(BTN_CONSTS.SYM_DOWN, COORD_CONSTS.RIGHT, 1);
+
+    addButtonCoord(BTN_CONSTS.OSB06, COORD_CONSTS.RIGHT, 2);
+    addButtonCoord(BTN_CONSTS.OSB07, COORD_CONSTS.RIGHT, 3);
+    addButtonCoord(BTN_CONSTS.OSB08, COORD_CONSTS.RIGHT, 4);
+    addButtonCoord(BTN_CONSTS.OSB09, COORD_CONSTS.RIGHT, 5);
+    addButtonCoord(BTN_CONSTS.OSB10, COORD_CONSTS.RIGHT, 6);
+
+    addButtonCoord(BTN_CONSTS.CON_UP, COORD_CONSTS.RIGHT, 7);
+    addButtonCoord(BTN_CONSTS.CON_DOWN, COORD_CONSTS.RIGHT, COORD_CONSTS.BOTTOM);
+}
+
+function parsePageDefinition() {
+
+
+}
+
+function positionButtonLabel(params) {
+
+}
+
+function layoutButtonLabels(pageButtons) {
+
+}
+
+function getRenderCoordinates(buttonId, fabricTextObject, context) {
+    var left = 0.0;
+    var top = 0.0;
+
+    var edgeMargin = 5.0;
+    console.log(buttonId);
+    var btnColRow = _.find(BTN_COL_ROW, function (btn) {
+        console.log(btn);
+        return btn.buttonId == buttonId;
+    });
+
+    if (btnColRow.x == COORD_CONSTS.LEFT) {
+        left = edgeMargin;
+    } else if (btnColRow.x == COORD_CONSTS.RIGHT) {
+        left = canvas.getWidth() - (fabricTextObject.width + edgeMargin);
+    } else {
+        left = getXCenterForColumn(btnColRow.x) - (fabricTextObject.width / 2.0);
+    }
+
+    if (btnColRow.y == COORD_CONSTS.TOP) {
+        top = edgeMargin;
+    } else if (btnColRow.y == COORD_CONSTS.BOTTOM) {
+        top = canvas.getHeight() - (fabricTextObject.height + edgeMargin);
+    } else {
+        top = getYCenterForRow(btnColRow.y);
+    }
+
+    return {
+        left: left,
+        top: top
     };
-    var widthStep = currentCanvasDimensions.width / 7.0;
-    var heightStep = currentCanvasDimensions.height / 7.0;
-    var buttonCenter = 0;
+}
 
-    // left
-    var leftButtonIds = ['GAIN_UP', 'GAIN_DOWN', 'OSB20', 'OSB20', 'OSB20', 'OSB20', 'OSB20', 'SYM_UP', 'SYM_DOWN'];
+function getXCenterForColumn(col) {
+    var widthStep = canvas.getWidth() / 7.0;
 
-    // top
-    var topButtonIds = [
-        BTN_CONSTS.OSB01,
-        BTN_CONSTS.OSB02,
-        BTN_CONSTS.OSB03,
-        BTN_CONSTS.OSB04,
-        BTN_CONSTS.OSB05
-    ];
-    var topTop = 5;
-    var topLeft = widthStep;
-    buttonCenter = topLeft + (widthStep / 2.0);
+    var x_center = (widthStep * col) + (widthStep / 2.0);
 
-    _.each(topButtonIds, function(buttonId) {
-            buttonCoords.push(createButtonCoord(buttonId, left, top));
-            left +=
-        })
-        // right
+    return x_center;
+}
 
-    // bottom
+function getYCenterForRow(row) {
+    console.log(canvas.getHeight());
 
+    var heightStep = canvas.getHeight() / 7.50;
+    var y_center = (heightStep * (row - 1)) + (heightStep / 2.0);
 
+    return y_center;
 }

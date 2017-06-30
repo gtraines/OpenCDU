@@ -95,6 +95,8 @@ class MainMenuPage extends CDUPage {
         // ctx.fillText("SETTINGS >", 242, 15);
 
         canvas.add(returnText);
+
+
         canvas.renderAll();
     }
 }
