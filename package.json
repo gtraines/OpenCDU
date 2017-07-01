@@ -1,7 +1,7 @@
 {
-    "name": "cdu-mfd",
+    "name": "multifunction-display",
     "version": "0.1.0",
-    "description": "Generic CDU-MFD Program",
+    "description": "Generic Multifunction Display",
     "repository": {
         "type": "git",
         "url": "http://github.com/gtraines/OpenCDU.git"
@@ -12,7 +12,9 @@
         "start": "electron main.js"
     },
     "dependencies": {
-        "jquery": "^3.2.1"
+        "jquery": "^3.2.1",
+        "fs": "latest",
+        "redux": "^3.7.1"
     },
     "devDependencies": {
         "electron-prebuilt": "^0.37.0"
