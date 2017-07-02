@@ -1,0 +1,46 @@
+{
+  "profileId": "tie_fighter",
+  "displayName": "TIE Fighter",
+  "pages": [
+    {
+      "id": "commo",
+      "title": {
+        "displayText": "COMMO",
+        "position": { "x": 7, "y": 7 }
+      },
+      "buttons": [
+        { "buttonId": "GAIN_UP", "displayText": "MAP", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "GAIN_DOWN", "displayText": "MSN", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB01", "displayText": "MSG", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB03", "displayText": "BEAM", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB05", "displayText": "CNFRM", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB06", "displayText": "RPRT STAT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB07", "displayText": "AWAIT ORDR", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB08", "displayText": "EVSV ACT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB09", "displayText": "CNTNU MSN", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB10", "displayText": "RTB", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB11", "displayText": "CKPIT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB12", "displayText": "WHEAD", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB13", "displayText": "REAR", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB14", "displayText": "EXT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB16", "displayText": "IGNR TGT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB17", "displayText": "REINFRC", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB18", "displayText": "RESUPPLY", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB19", "displayText": "CVR ME", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB20", "displayText": "ATK", "buttonType": "DISPLAY_ONLY" }
+      ],
+      "elements": []
+    },
+    {
+      "id": "target",
+      "title": {
+        "displayText": "TARGET",
+        "position": { "x": 7, "y": 7}
+      },
+      "buttons": [
+
+      ],
+      "elements": []
+    }
+  ]
+}

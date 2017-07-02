@@ -4,8 +4,15 @@
 
     module.exports = {
         COORDS: getPositionConstants(),
-        BTNS: getButtonConstants()
+        BTNS: getButtonConstants(),
+        BTN_TYPES: getButtonTypeConstants()
     };
+
+    function getButtonTypeConstants() {
+        return {
+            DISPLAY_ONLY: "DISPLAY_ONLY"
+        }
+    }
 
     function getPositionConstants() {
         return {
