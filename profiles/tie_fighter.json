@@ -3,10 +3,38 @@
   "displayName": "TIE Fighter",
   "pages": [
     {
+      "id": "main_menu",
+      "title": {
+        "displayText": "Sienar Fleet Systems",
+        "position": { "x": 3, "y": 5 }
+      },
+      "buttons": [
+        {
+          "buttonId": "OSB16",
+          "displayText": "COMMO",
+          "buttonType": "NAVIGATION",
+          "target": "commo"
+        },
+        {
+          "buttonId": "OSB10",
+          "displayText": "TARGET",
+          "buttonType": "NAVIGATION",
+          "target": "target"
+        }
+      ],
+      "elements": [
+        {
+          "displayText": "TIE Operator Information System",
+          "elementType": "LABEL",
+          "position": { "x": 3, "y": 6 }
+        }
+      ]
+    },
+    {
       "id": "commo",
       "title": {
         "displayText": "COMMO",
-        "position": { "x": 7, "y": 7 }
+        "position": { "x": 3, "y": 4 }
       },
       "buttons": [
         { "buttonId": "GAIN_UP", "displayText": "MAP", "buttonType": "DISPLAY_ONLY" },
@@ -27,7 +55,8 @@
         { "buttonId": "OSB17", "displayText": "REINFRC", "buttonType": "DISPLAY_ONLY" },
         { "buttonId": "OSB18", "displayText": "RESUPPLY", "buttonType": "DISPLAY_ONLY" },
         { "buttonId": "OSB19", "displayText": "CVR ME", "buttonType": "DISPLAY_ONLY" },
-        { "buttonId": "OSB20", "displayText": "ATK", "buttonType": "DISPLAY_ONLY" }
+        { "buttonId": "OSB20", "displayText": "ATK", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "CON_UP", "displayText": "PREV >", "buttonType": "NAVIGATION", "target": "main_menu" }
       ],
       "elements": []
     },
@@ -35,10 +64,24 @@
       "id": "target",
       "title": {
         "displayText": "TARGET",
-        "position": { "x": 7, "y": 7}
+        "position": { "x": 3, "y": 4}
       },
       "buttons": [
-
+        { "buttonId": "GAIN_UP", "displayText": "DIST", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB05", "displayText": "THREAT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "SYM_UP", "displayText": "CMPNT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB06", "displayText": "", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB07", "displayText": "HPRDRV", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB10", "displayText": "EJECT", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB12", "displayText": "RCL 2", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB13", "displayText": "SET 2", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB14", "displayText": "RCL 1", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB15", "displayText": "SET 1", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB17", "displayText": "REINFRC", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB18", "displayText": "ESCRT ATK", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB19", "displayText": "CTR ATK", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "OSB20", "displayText": "NEWEST", "buttonType": "DISPLAY_ONLY" },
+        { "buttonId": "CON_UP", "displayText": "PREV >", "buttonType": "NAVIGATION", "target": "main_menu" }
       ],
       "elements": []
     }

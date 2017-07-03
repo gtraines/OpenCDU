@@ -15,7 +15,13 @@ var textConfig = {
     top: 15
 };
 
-
+var titleConfig = {
+    fontSize: 14,
+    fontFamily: 'RobotoMono',
+    fill: "limegreen",
+    left: 15,
+    top: 15
+};
 
 var BTN_COL_ROW = [];
 
@@ -73,8 +79,9 @@ function renderPage(page, canvas) {
         generateButtonCoords();
     }
 
-    positionButtonLabels(page.buttons, canvas);
     positionTitle(page.title, canvas);
+    positionElements(page.elements, canvas);
+    positionButtonLabels(page.buttons, canvas);
 
     canvas.renderAll();
 }
@@ -143,31 +150,36 @@ function getRenderCoordinates(col, row, textObject, canvas) {
     }
 }
 
+function positionElements(elements, canvas) {
+    _.each(elements, function (element) {
+        var elementText = new fabric.Text(element.displayText, textConfig);
+        canvas.add(elementText);
+
+        var canvasCoords = getRenderCoordinates(element.position.x, element.position.y, elementText, canvas);
+
+        elementText.set({
+            left: canvasCoords.left,
+            top: canvasCoords.top
+        });
+    })
+}
+
 function positionTitle(titleObj, canvas) {
     if (titleObj == undefined) {
         return;
     }
-    var titleConfig = {
-        fontSize: 10,
-        fontFamily: 'RobotoMono',
-        fill: "limegreen",
-        left: 15,
-        top: 15
-    };
 
-    console.log(titleObj);
+
     var titleText = new fabric.Text(titleObj.displayText, titleConfig);
     canvas.add(titleText);
-    console.log(titleText);
+
     var canvasCoords = getRenderCoordinates(titleObj.position.x, titleObj.position.y, titleText, canvas);
-    console.log(canvasCoords);
+
     titleText.set(
         {
             left: canvasCoords.left,
             top: canvasCoords.top
         });
-
-    console.log(titleText);
 
 }
 
@@ -180,9 +192,8 @@ function getXCenterForColumn(col, canvas) {
 }
 
 function getYCenterForRow(row, canvas) {
-    console.log(canvas.getHeight());
-
     var heightStep = canvas.getHeight() / 7.50;
+
     var y_center = (heightStep * (row - 1)) + (heightStep / 2.0);
 
     return y_center;

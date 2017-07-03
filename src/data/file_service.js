@@ -6,7 +6,7 @@ var fs = require('fs');
 
 module.exports = {
     getJsonFile: getJsonFile
-}
+};
 
 function getJsonFile(fileLocation) {
     var openedFile = fs.readFileSync(fileLocation);

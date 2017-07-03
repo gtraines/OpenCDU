@@ -10,7 +10,8 @@
 
     function getButtonTypeConstants() {
         return {
-            DISPLAY_ONLY: "DISPLAY_ONLY"
+            DISPLAY_ONLY: "DISPLAY_ONLY",
+            NAVIGATION: "NAVIGATION"
         }
     }
 
